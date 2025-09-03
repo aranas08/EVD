@@ -1,0 +1,16 @@
+x  <button id="saveBtn">Save Data</button>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwRCY39p7qBz_SAJGIDmemjq3Rm6AqHr9jn2aPDPh0Ij7gGpZCGJganTykYdjjTAmCz/exec"; // paste your Web App URL here
+
+  document.getElementById("saveBtn").addEventListener("click", () => {
+    const payload = { name: "John Doe", score: 95 };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg))
+    .catch(err => console.error("Error:", err));
+  });
+</script>
